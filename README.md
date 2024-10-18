@@ -20,7 +20,7 @@
 ## 🔧 설치 방법
 ```bash
 # 클론 후 설치
-git clone https://github.com/username/repository.git
+git clone https://github.com/chaneepo/repository.git
 cd repository
 npm install
 
