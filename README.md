@@ -6,7 +6,7 @@
 
 # My OpenSource Project
 
-![Build Status](https://img.shields.io/github/workflow/status/chaneepo/repository/CI) ![License](https://img.shields.io/github/license/chaneepo/repository)
+![Build Status](https://img.shields.io/github/workflow/status/chaneepo/repository/CI) ![./License](https://img.shields.io/github/license/chaneepo/repository)
 
 ## 📋 목차
 1. [프로젝트 소개](#프로젝트-소개)
