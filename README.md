@@ -1,6 +1,7 @@
 ## Hi there 👋
 
 **bold**
+*bold*
 ## Soongsil Univ
 
 # My OpenSource Project
