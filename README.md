@@ -15,4 +15,4 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-print(Hello, Universe!")
+print("Hello, Universe!")
