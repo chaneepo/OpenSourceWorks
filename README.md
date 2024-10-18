@@ -17,16 +17,8 @@
 - 🚀 빠른 성능
 - 💼 쉬운 배포
 
-## 🔧 설치 방법
-```bash
-# 클론 후 설치
-git clone https://github.com/chaneepo/repository.git
-cd repository
-npm install
 
-
-
-
+## 🔧 내용
 
 
 ## 🛡 라이선스
@@ -43,14 +35,14 @@ Here are some ideas to get you started:
 
 <img src="https://capsule-render.vercel.app/api?type=모양&color=색상코드&height=높이&section=footer&text=텍스트&fontSize=텍스트크기" />
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
+- 🔭 I’m currently working on C++, Python
+- 🌱 I’m currently learning C++
 - 👯 I’m looking to collaborate on ...
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+- ⚡ Fun fact: print("Hello, Universe!");
 -->
 
-print("Hello, Universe!");
+
