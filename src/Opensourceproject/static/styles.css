@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 버튼 이미지 크기 및 효과 */
+.inline-flex img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.inline-flex:hover img {
+    transform: scale(1.1);
+}
+
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
