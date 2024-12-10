@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-4">검색 결과</h1>
+        <ul>
+            {% for hospital in hospitals %}
+            <li class="mb-4 p-4 border rounded">
+                <h2 class="text-lg font-bold">{{ hospital.name }}</h2>
+                <p>주소: {{ hospital.address }}</p>
+                <a href="{{ url_for('hospital_detail', hospital_id=hospital.id) }}" class="text-blue-500 underline">자세히 보기</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="text-blue-500 underline mt-4 block">홈으로 돌아가기</a>
+    </div>
+</body>
+</html>

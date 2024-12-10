@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>병원 대기열 관리</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold">병원 ID: {{ hospital_id }}</h1>
+        <h2 class="text-lg font-bold mt-6">대기열</h2>
+        <ul id="waiting-list" class="list-disc pl-5">
+            {% for ticket in waiting_list %}
+            <li>대기 번호: {{ ticket }}</li>
+            {% endfor %}
+            {% if not waiting_list %}
+            <li>현재 대기열이 없습니다.</li>
+            {% endif %}
+        </ul>
+
+        <!-- 번호표 발급 -->
+        <button id="add-ticket" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4">번호표 뽑기</button>
+
+        <!-- 번호표 제거 -->
+        <button id="remove-ticket" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 mt-2">대기열 제거</button>
+
+        <!-- 홈 및 뒤로 가기 -->
+        <div class="flex mt-6 space-x-4">
+            <a href="/" class="text-blue-500 underline">홈으로 돌아가기</a>
+            <a href="javascript:history.back()" class="text-blue-500 underline">뒤로 가기</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const hospitalId = "{{ hospital_id }}";
+
+            // 번호표 발급
+            $('#add-ticket').click(function () {
+                $.post(`/ticket/add/${hospitalId}`, function (data) {
+                    alert(data.message);
+                    updateWaitingList(data.waiting_list);
+                }).fail(function (xhr) {
+                    alert(xhr.responseJSON.error || "번호표 발급 실패");
+                });
+            });
+
+            // 번호표 제거
+            $('#remove-ticket').click(function () {
+                $.post(`/ticket/remove/${hospitalId}`, function (data) {
+                    alert(data.message);
+                    updateWaitingList(data.waiting_list);
+                }).fail(function (xhr) {
+                    alert(xhr.responseJSON.error || "번호표 제거 실패");
+                });
+            });
+
+            // 대기열 업데이트
+            function updateWaitingList(waitingList) {
+                const waitingListEl = $('#waiting-list');
+                waitingListEl.empty();
+                if (waitingList.length > 0) {
+                    waitingList.forEach(ticket => {
+                        waitingListEl.append(`<li>대기 번호: ${ticket}</li>`);
+                    });
+                } else {
+                    waitingListEl.append('<li>현재 대기열이 없습니다.</li>');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
